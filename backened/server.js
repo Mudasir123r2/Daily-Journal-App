@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config()
 const {errorHandler}= require("./middlewares/errorHandlerMiddleware.js")
 const connectDB = require("./config/db.js")
 
-const port = process.env.Port || 5000
+const port = process.env.PORT || 5000
 
 connectDB()
 
