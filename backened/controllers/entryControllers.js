@@ -23,7 +23,6 @@ const setEntry = asyncHandler (async(req, res)=>{
         content,
     })
 
-
     res.status(200).json(entry)
 })
 
