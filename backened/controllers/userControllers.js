@@ -39,7 +39,7 @@ const registerUser = asyncHandler(async (req,res)=>{
             _id:user.id,
             name:user.name,
             email:user.email,
-            password:user.password,
+            token : generateToken(user._id)
         })
     }else{
         res.status(400)
@@ -63,11 +63,12 @@ const loginUser = asyncHandler(async (req, res)=>{
             _id:user.id,
             name:user.name,
             email:user.email,
+            token : generateToken(user._id)
         })
     }else{
         res.status(400)
         throw new Error("Invalid Credintials")
-    }
+    } 
 
 
 
@@ -80,6 +81,12 @@ const loginUser = asyncHandler(async (req, res)=>{
  const getMe = asyncHandler(async(req,res)=>{
     res.json({message:"user data"})
  })
+
+ const generateToken = (id)=>{
+    return jwt.sign({id},process.env.JWT_SECRET,{
+        expiresIn:"20d"
+    })
+ }
 
 module.exports={
     registerUser,
