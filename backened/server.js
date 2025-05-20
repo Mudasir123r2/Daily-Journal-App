@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv").config()
-const {errorHandler}= require("./middlewares/errorHandlerMiddleware.js")
+const {errorHandler,notFound}= require("./middlewares/errorHandlerMiddleware.js")
 const connectDB = require("./config/db.js")
 
 const port = process.env.PORT || 5000
@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/entries",require("./routes/entryRoutes.js"))
 app.use("/api/users",require("./routes/userRoutes.js"))
 
+app.use(notFound)
 app.use(errorHandler)
 
 app.listen(port, ()=>{
