@@ -7,6 +7,7 @@ import Dashboard from "./pages/dashboard";
 import NewEntry from "./pages/newEntry";
 import ViewEntry from "./pages/ViewEntry";
 import EditEntry from "./pages/EditEntry";
+import DeleteEntry from "./pages/DeleteEntry";
 import Home from "./pages/home"
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/new" element={<ProtectedRoute><NewEntry /></ProtectedRoute>} />
           <Route path="/view/:id" element={<ProtectedRoute><ViewEntry /></ProtectedRoute>} />
           <Route path="/edit/:id" element={<ProtectedRoute><EditEntry /></ProtectedRoute>} />
+          <Route path="/delete/:id" element={ <ProtectedRoute> <DeleteEntry /></ProtectedRoute>}/>
         </Routes>
       </BrowserRouter>
     </AuthProvider>

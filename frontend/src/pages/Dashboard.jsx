@@ -22,6 +22,7 @@ const Dashboard = () => {
         <h3 className="text-xl font-bold">{entry.title}</h3>
         <p className="text-sm text-gray-400">{new Date(entry.date).toLocaleString()}</p>
         <Link to={`/view/${entry._id}`} className="text-red-400 mt-2 inline-block hover:underline">View</Link>
+        <Link to={`/delete/${entry._id}`} className="text-red-500 hover:underline ml-4"> Delete </Link>
       </div>
     ))}
   </div>
