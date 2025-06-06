@@ -46,9 +46,6 @@ const registerUser = asyncHandler(async (req,res)=>{
         throw new Error("Invalid user data")
     }
 
-
-
-    res.json({message:"register user"})
 })
 
 // route /api/users/login
@@ -71,9 +68,6 @@ const loginUser = asyncHandler(async (req, res)=>{
     } 
 
 
-
-
-    res.json({message:"loogin user"})
 })
 
 // route /api/users/me
@@ -87,8 +81,6 @@ const loginUser = asyncHandler(async (req, res)=>{
         name,
         email
     })
-
-    res.json({message:"user data"})
  })
 
  const generateToken = (id)=>{

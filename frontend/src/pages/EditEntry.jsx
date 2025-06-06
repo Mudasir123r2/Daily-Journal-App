@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 
-const EditEntry = () => {
+export default function EditEntry(){
   const { id } = useParams();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    axiosInstance.get("/").then(res => {
+    axiosInstance.get(`/entries/${id}`).then(res => {
       const entry = res.data.find(item => item._id === id);
       if (entry) {
         setTitle(entry.title);
@@ -20,7 +20,7 @@ const EditEntry = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    await axiosInstance.put(`/${id}`, { title, content });
+    await axiosInstance.put(`/entries/${id}`, { title, content });
     navigate("/dashboard");
   };
 
@@ -45,6 +45,5 @@ const EditEntry = () => {
       </form>
     </div>
   );
-};
+}
 
-export default EditEntry;

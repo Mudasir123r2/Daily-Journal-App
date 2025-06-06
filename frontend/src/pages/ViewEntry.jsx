@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 
-const ViewEntry = () => {
+export default function ViewEntry(){
   const { id } = useParams();
   const [entry, setEntry] = useState(null);
 
   useEffect(() => {
-    axiosInstance.get("/")
+    axiosInstance.get(`/entries/${id}`)
       .then(res => {
         const found = res.data.find(item => item._id === id);
         setEntry(found);
@@ -24,6 +24,4 @@ const ViewEntry = () => {
   <Link to={`/edit/${entry._id}`} className="text-white bg-red-600 mt-4 inline-block px-4 py-2 rounded hover:bg-red-700 transition">Edit</Link>
 </div>
   );
-};
-
-export default ViewEntry;
+}

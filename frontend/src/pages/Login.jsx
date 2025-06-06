@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 
-const Login = async ()=>{
+export default function Login(){
     
     const {login}=useAuth()
 
@@ -32,5 +32,3 @@ const Login = async ()=>{
         </div>
     )
 }
-
-export default Login

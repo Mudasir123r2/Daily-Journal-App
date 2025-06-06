@@ -9,13 +9,13 @@ export const AuthProvider = ({children})=>{
     const [user,setUser]=useState(null)
 
     const login = async (formData)=>{
-        const res = await axiosInstance.post("/auth/login",formData)
+        const res = await axiosInstance.post("/users/login",formData)
         setUser(res.data.user)
         localStorage.setItem("token",res.data.token)
     }
 
     const register = async (formData)=>{
-        const res = await axiosInstance.post("/auth/login",formData)
+        const res = await axiosInstance.post("/users",formData)
         setUser(res.data.user)
         localStorage.setItem("token",res.data.token)
     }
@@ -28,7 +28,7 @@ export const AuthProvider = ({children})=>{
     useEffect(()=>{
         const token = localStorage.getItem("token")
         if(token){
-            axiosInstance.get("/auth/me").then((res)=>{
+            axiosInstance.get("/users/me").then((res)=>{
                 setUser(res.data)
             })
         }

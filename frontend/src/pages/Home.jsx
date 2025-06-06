@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 
-const Home = () => {
+export default function Home() {
   return (
     <div className="min-h-screen bg-[#1e1e1e] text-white">
       <Navbar />
@@ -9,6 +9,4 @@ const Home = () => {
       </div>
     </div>
   );
-};
-
-export default Home;
+}

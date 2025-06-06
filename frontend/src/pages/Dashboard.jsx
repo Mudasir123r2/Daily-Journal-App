@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../api/axiosInstance";
 import { Link } from "react-router-dom";
 
-const Dashboard = () => {
+export default function Dashboard() {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
-    axiosInstance.get("/")
+    axiosInstance.get("/entries")
       .then(res => setEntries(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -28,6 +28,4 @@ const Dashboard = () => {
   </div>
 </div>
       );
-};
-
-export default Dashboard;
+}

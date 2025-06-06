@@ -2,14 +2,14 @@ import { useState } from "react";
 import axiosInstance from "../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
 
-const NewEntry = () => {
+export default function NewEntry() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axiosInstance.post("/", { title, content });
+    await axiosInstance.post("/entries", { title, content });
     navigate("/dashboard");
   };
 
@@ -36,6 +36,4 @@ const NewEntry = () => {
       </form>
     </div>
   );
-};
-
-export default NewEntry;
+}

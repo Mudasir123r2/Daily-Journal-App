@@ -84,7 +84,7 @@ const deleteEntry =asyncHandler( async (req, res)=>{
     }
 
     await entryModel.findByIdAndDelete(req.params.id)
-    res.status(200).json({message: `Delete Goal ${req.params.id}`,})
+    res.status(200).json({message: `Delete Entry ${req.params.id}`,})
 })
 
 

@@ -3,12 +3,12 @@ import { AuthProvider, } from "./context/AuthContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Dashboard from "./pages/dashboard";
-import NewEntry from "./pages/newEntry";
+import Dashboard from "./pages/Dashboard";
+import NewEntry from "./pages/NewEntry";
 import ViewEntry from "./pages/ViewEntry";
 import EditEntry from "./pages/EditEntry";
 import DeleteEntry from "./pages/DeleteEntry";
-import Home from "./pages/home"
+import Home from "./pages/Home"
 
 
 
