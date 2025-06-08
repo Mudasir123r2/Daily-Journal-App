@@ -7,9 +7,10 @@ export default function ViewEntry(){
   const [entry, setEntry] = useState(null);
 
   useEffect(() => {
-    axiosInstance.get(`/entries/${id}`)
+    axiosInstance.get(`/entries`)
       .then(res => {
-        setEntry(res.data);
+        const found = res.data.find(item => item._id === id);
+        setEntry(found);
       });
   }, [id]);
 

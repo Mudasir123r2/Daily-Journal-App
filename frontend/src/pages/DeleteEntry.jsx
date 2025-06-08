@@ -11,15 +11,15 @@ export default function DeleteEntry(){
   useEffect(() => {
     const fetchEntry = async () => {
       try {
-        const res = await axiosInstance.get(`/entries/${id}`);
-        setEntry(res.data);
+        const res = await axiosInstance.get(`/entries`);
+        const foundEntry = res.data.find(item => item._id === id);
+        setEntry(foundEntry);
       } catch (error) {
         console.error("Error fetching entry:", error);
       } finally {
         setLoading(false);
       }
     };
-
     fetchEntry();
   }, [id]);
 
