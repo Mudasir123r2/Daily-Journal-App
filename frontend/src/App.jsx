@@ -1,14 +1,6 @@
 import { BrowserRouter, Routes, Route,} from "react-router-dom";
 import { AuthProvider, } from "./context/AuthContext";
-import ProtectedRoute from "./utils/ProtectedRoute";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Dashboard from "./pages/dashboard";
-import NewEntry from "./pages/newEntry";
-import ViewEntry from "./pages/ViewEntry";
-import EditEntry from "./pages/EditEntry";
-import DeleteEntry from "./pages/DeleteEntry";
-import Home from "./pages/home"
+
 
 
 function App() {
