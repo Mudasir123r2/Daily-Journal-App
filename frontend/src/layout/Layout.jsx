@@ -5,7 +5,7 @@ export default function Layout(){
     return (
         <>
         <Navbar />
-        <main className="px-4 py-6">
+        <main className="">
             <Outlet />
         </main>
         </>

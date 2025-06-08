@@ -12,8 +12,7 @@ export default function DeleteEntry(){
     const fetchEntry = async () => {
       try {
         const res = await axiosInstance.get(`/entries/${id}`);
-        const foundEntry = res.data.find(item => item._id === id);
-        setEntry(foundEntry);
+        setEntry(res.data);
       } catch (error) {
         console.error("Error fetching entry:", error);
       } finally {

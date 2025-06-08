@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import Navbar from "../components/Navbar";
 
 export default function Register(){
   const { register } = useAuth();
@@ -16,12 +15,10 @@ export default function Register(){
   const handleSubmit = async (e) => {
     e.preventDefault();
     await register(formData);
-    navigate("/dashboard");
+    navigate("/login");
   };
 
   return (
-    <div className="min-h-screen bg-[#1e1e1e] text-white">
-      <Navbar />
       <div className="max-w-md mx-auto mt-10 p-6 border border-gray-700 bg-[#2c2c2c] rounded">
         <h2 className="text-2xl font-bold mb-4">Register</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -54,6 +51,5 @@ export default function Register(){
           </button>
         </form>
       </div>
-    </div>
   );
 }

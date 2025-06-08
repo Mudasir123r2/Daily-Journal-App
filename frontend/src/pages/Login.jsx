@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import Navbar from "../components/Navbar";
 
 export default function Login(){
     
@@ -11,16 +10,19 @@ export default function Login(){
 
     const [formData,setFormData]=useState({email:"",password:""})
 
-    const handleSubmit = async (e)=>{
-        e.preventDefault()
-        await login(formData)
-        navigate("/dashboard")
-    }
+   const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    await login(formData);
+    navigate("/dashboard");
+  } catch (err) {
+    console.error("Login failed:", err);
+    alert("Login failed. Please check your credentials.");
+  }
+};
 
 
     return (
-        <div className="min-h-screen bg-[#1e1e1e] text-white">
-            <Navbar />
             <div className="max-w-md mx-auto mt-10 p-6 border border-gray-700 bg-[#2c2c2c] rounded">
                 <h2 className="text-2xl font-bold mb-4">Login</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -29,6 +31,5 @@ export default function Login(){
                     <button type="submit" className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded">Login</button>
                 </form>
             </div>
-        </div>
     )
 }
