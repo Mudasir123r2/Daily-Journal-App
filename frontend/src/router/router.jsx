@@ -1,4 +1,3 @@
-// router/router.jsx
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -24,7 +23,7 @@ const router = createBrowserRouter(
       <Route path="register" element={<Register />} />
       <Route path="login" element={<Login />} />
 
-      {/* Protected Routes */}
+    
       <Route
         path="dashboard"
         element={
@@ -65,7 +64,7 @@ const router = createBrowserRouter(
           </ProtectedRoute>
         }
       />
-      {/* 404 Page */}
+     
       <Route path="*" element={<div className="text-center mt-10">404 Not Found</div>} />
     </Route>
   )
