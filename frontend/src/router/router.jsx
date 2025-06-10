@@ -6,6 +6,7 @@ import {
 
 import Layout from "../layout/Layout";
 import ProtectedRoute from "../utils/ProtectedRoute";
+import PublicRoute from "../utils/PublicRoute";
 
 import Home from "../pages/home";
 import Register from "../pages/Register";
@@ -20,8 +21,16 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="register" element={<Register />} />
-      <Route path="login" element={<Login />} />
+      <Route
+       path="register"
+       element={<PublicRoute>
+                  <Register />
+                </PublicRoute>} />
+      <Route
+       path="login"
+       element={<PublicRoute>
+                 <Login />
+              </PublicRoute>} />
 
     
       <Route
