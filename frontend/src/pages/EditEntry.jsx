@@ -2,39 +2,64 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 
-
 export default function EditEntry() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
+    setError(null);
     axiosInstance
-      .get(`/entries/${id}`)
+      .get(`/entries`)  
       .then((res) => {
-        const entry = res.data;
+        const entry = res.data.find((item) => item._id === id);
         if (entry) {
           setTitle(entry.title);
           setContent(entry.content);
+        } else {
+          setError("Entry not found");
         }
       })
-      .catch((err) => console.error(err))
+      .catch((err) => {
+        console.error(err);
+        setError("Failed to fetch entries");
+      })
       .finally(() => setLoading(false));
   }, [id]);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    await axiosInstance.put(`/entries/${id}`, { title, content });
-    navigate("/dashboard");
+    try {
+      await axiosInstance.put(`/entries/${id}`, { title, content });
+      navigate("/dashboard");
+    } catch (err) {
+      console.error(err);
+      setError("Failed to update entry");
+    }
   };
 
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
         <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-red-500 border-opacity-50"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+        <p className="text-red-500 text-xl">{error}</p>
+        <Link 
+          to="/dashboard" 
+          className="ml-4 px-4 py-2 bg-red-600 rounded-lg"
+        >
+          Back to Dashboard
+        </Link>
       </div>
     );
   }

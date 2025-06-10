@@ -1,6 +1,30 @@
 import { Link } from "react-router-dom";
+import {useAuth} from "../context/AuthContext"
+import {useNavigate} from "react-router-dom";
 
 const Footer = () => {
+
+
+   const {user}=useAuth()
+   const navigate=useNavigate()
+
+    const handleLogin=()=>{
+        if(user){
+            navigate("/dashboard")
+        }else{
+            navigate("/login")
+        }
+     }
+
+     const handleRegister=()=>{
+        if(user){
+            navigate("/dashboard")
+        }else{
+            navigate("/register")
+        }
+     }
+
+
   return (
     <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-black text-gray-400  shadow-md">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
@@ -21,24 +45,28 @@ const Footer = () => {
           >
             Home
           </Link>
-          <Link
-            to="/dashboard"
-            className="text-white hover:text-slate-400 transition duration-300 font-medium"
-          >
-            Dashboard
-          </Link>
-          <Link
-            to="/login"
+         {user && (
+    <Link
+      to="/dashboard"
+      className="text-white hover:text-slate-400 transition duration-300 font-medium"
+    >
+      Dashboard
+    </Link>
+  )}
+        {!user && (<button
+            onClick={handleLogin}
             className="text-white hover:text-slate-400 transition duration-300 font-medium"
           >
             Login
-          </Link>
-          <Link
-            to="/register"
+          </button>)}
+
+          {!user && (<button
+            onClick={handleRegister}
             className="text-white hover:text-slate-400 transition duration-300 font-medium"
           >
             Register
-          </Link>
+          </button>)}
+          
         </div>
       </div>
 

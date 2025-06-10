@@ -18,13 +18,13 @@ const Navbar = () => {
           <>
             <Link
               to="/login"
-              className="bg-slate-700 hover:bg-slate-600 px-5 py-2 rounded-md font-medium text-white transition duration-300 ring-1 ring-slate-600 hover:ring-2 shadow-sm"
+              className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-md font-medium text-white transition duration-300 ring-1 ring-slate-600 hover:ring-2 shadow-sm"
             >
               Login
             </Link>
             <Link
               to="/register"
-              className="bg-gray-700 hover:bg-gray-600 px-5 py-2 rounded-md font-medium text-white transition duration-300 ring-1 ring-gray-600 hover:ring-2 shadow-sm"
+              className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-md font-medium text-white transition duration-300 ring-1 ring-gray-600 hover:ring-2 shadow-sm"
             >
               Register
             </Link>
@@ -33,13 +33,13 @@ const Navbar = () => {
           <>
             <Link
               to="/dashboard"
-              className="bg-gray-700 hover:bg-gray-600 px-5 py-2 rounded-md font-medium text-white transition duration-300 ring-1 ring-gray-600 hover:ring-2 shadow-sm"
+              className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-md font-medium text-white transition duration-300 ring-1 ring-gray-600 hover:ring-2 shadow-sm"
             >
               Dashboard
             </Link>
             <button
               onClick={logout}
-              className="bg-slate-700 hover:bg-slate-600 px-5 py-2 rounded-md font-medium text-white transition duration-300 ring-1 ring-slate-600 hover:ring-2 shadow-sm"
+              className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-md font-medium text-white transition duration-300 ring-1 ring-slate-600 hover:ring-2 shadow-sm"
             >
               Logout
             </button>

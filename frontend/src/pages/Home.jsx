@@ -27,7 +27,7 @@ export default function Home() {
         </p>
         <button
           onClick={handleGetStarted}
-          className="inline-block bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md transition duration-200"
+          className="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold shadow-md transition duration-200"
         >
           Get Started
         </button>
