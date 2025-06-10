@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 
+
 export default function EditEntry() {
   const { id } = useParams();
   const navigate = useNavigate();

@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import axiosInstance from "../api/axiosInstance";
 import { Link } from "react-router-dom";
+import {useAuth} from "../context/AuthContext"
+import Spinner from "../components/Spinner"
 
 export default function Dashboard() {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(true); // <-- loading state
+
+  const {loading:authLoading}=useAuth()
 
   useEffect(() => {
     setLoading(true);
@@ -29,10 +33,8 @@ export default function Dashboard() {
         </div>
 
         {/* Spinner while loading */}
-        {loading ? (
-          <div className="flex justify-center mt-20">
-            <div className="w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
-          </div>
+        {(loading || authLoading) ? (
+          <Spinner />
         ) : (
           // Entries List
           <div className="space-y-4">
