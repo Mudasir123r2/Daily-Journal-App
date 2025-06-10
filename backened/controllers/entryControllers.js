@@ -5,8 +5,6 @@ const userModel = require("../models/userModel.js")
 
 const getEntry = asyncHandler(async (req, res)=>{
 
-    // getting specific user entries
-
     const entries = await entryModel.find({user:req.user.id})
     res.status(200).json(entries)
 
@@ -24,10 +22,10 @@ const setEntry = asyncHandler (async(req, res)=>{
     const entry = await entryModel.create({
         title,
         content,
-        user: req.user.id, // associate the entry with the logged-in user
+        user: req.user.id, 
     })
 
-    res.status(200).json(entry)
+    res.status(201).json(entry)
 })
 
 const updateEntry = asyncHandler(async(req, res)=>{
@@ -35,7 +33,7 @@ const updateEntry = asyncHandler(async(req, res)=>{
     const entry = await entryModel.findById(req.params.id)
 
     if(!entry){
-        res.status(400)
+        res.status(404)
         throw new Error("Entry not found")
     }
 
@@ -46,7 +44,7 @@ const updateEntry = asyncHandler(async(req, res)=>{
     }
 
     
-    // Check if the logged-in user is the owner of the entry
+    
     if(entry.user.toString() !== user.id) {
         res.status(401)
         throw new Error("User not authorized")
@@ -66,7 +64,7 @@ const deleteEntry =asyncHandler( async (req, res)=>{
     const entry = await entryModel.findById(req.params.id)
 
     if(!entry){
-        res.status(400)
+        res.status(404)
         throw new Error("Entry not found")
     }
 
@@ -77,7 +75,7 @@ const deleteEntry =asyncHandler( async (req, res)=>{
     }
 
     
-    // Check if the logged-in user is the owner of the entry
+   
     if(entry.user.toString() !== user.id) {
         res.status(401)
         throw new Error("User not authorized")

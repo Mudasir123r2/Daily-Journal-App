@@ -5,12 +5,11 @@ import { useAuth } from "../context/AuthContext";
 const PublicRoute = ({ children }) => {
   const { user } = useAuth();
 
-  // If user is logged in, redirect to dashboard
+
   if (user) {
     return <Navigate to="/dashboard" />;
   }
 
-  // If not logged in, allow access
   return children;
 };
 

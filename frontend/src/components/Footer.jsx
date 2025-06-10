@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Divider and Copyright */}
+    
       <div className="text-center text-sm text-gray-500 mt-6 border-t border-gray-700 pt-4">
         &copy; {new Date().getFullYear()} Daily Journal. All rights reserved.
       </div>

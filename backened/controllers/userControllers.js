@@ -4,11 +4,9 @@ const asyncHandler = require("express-async-handler")
 const userModel = require("../models/userModel")
 
 
-// route /api/users
-// public
+
 const registerUser = asyncHandler(async (req,res)=>{
 
-    console.log(req.body)
     const {name , email, password }= req.body
      
     if(!name || !email || !password){
@@ -23,7 +21,7 @@ const registerUser = asyncHandler(async (req,res)=>{
         throw new Error("User already exists")
     }
 
-    // hash password
+   
 
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password,salt)
@@ -50,7 +48,7 @@ const registerUser = asyncHandler(async (req,res)=>{
 
 })
 
-// route /api/users/login
+
 const loginUser = asyncHandler(async (req, res)=>{
 
     let {email,password}=req.body
@@ -73,8 +71,7 @@ const loginUser = asyncHandler(async (req, res)=>{
 
 })
 
-// route /api/users/me
-// private
+
  const getMe = asyncHandler(async(req,res)=>{
 
     const {_id,name,email}= await userModel.findById(req.user.id) 

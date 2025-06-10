@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="flex flex-col md:flex-row items-center justify-center h-[90vh] bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white px-6 py-8">
       
-      {/* Left Section: Text */}
+     
       <div className="flex-1 text-center md:text-left space-y-6">
         <h1 className="text-4xl md:text-5xl font-extrabold text-slate-200 drop-shadow-lg">
           Welcome to Daily Journal App
@@ -33,7 +33,7 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Right Section: Image with Cool Glow */}
+     
       <div className="flex-1 mt-10 md:mt-0 flex justify-center">
         <div className="relative group">
           <img

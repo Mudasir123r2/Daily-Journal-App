@@ -17,7 +17,7 @@ const entrySchema = mongoose.Schema({
       },
       date: {
         type: Date,
-        default: Date.now, // automatic current date
+        default: Date.now, 
       },
 }, {timestamps: true,})
 

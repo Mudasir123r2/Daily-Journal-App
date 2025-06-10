@@ -6,7 +6,7 @@ const AuthContext = createContext();
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // <-- loading state
+  const [loading, setLoading] = useState(true); 
 
   const login = async (formData) => {
     try {
@@ -21,7 +21,6 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (formData) => {
     await axiosInstance.post("/users", formData);
-    console.log("register successfully please log in");
   };
 
   const logout = () => {
@@ -38,15 +37,15 @@ export const AuthProvider = ({ children }) => {
           setUser(res.data);
         })
         .catch((err) => {
-          console.error("Error verifying token:", err.response?.data || err.message);
+          console.error("Error verifying token:",err.message);
           localStorage.removeItem("token");
           setUser(null);
         })
         .finally(() => {
-          setLoading(false);  // <-- stop loading after fetch completes
+          setLoading(false);  
         });
     } else {
-      setLoading(false); // no token, stop loading immediately
+      setLoading(false); 
     }
   }, []);
 

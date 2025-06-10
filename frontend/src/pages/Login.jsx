@@ -34,7 +34,6 @@ export default function Login() {
         navigate("/dashboard");
       } catch (error) {
         toast.error("Invalid credentials. Please try again.");
-        console.error("Login Error:", error);
       } finally {
         setIsLoading(false);
       }
@@ -49,7 +48,7 @@ export default function Login() {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Email Field */}
+        
           <div>
             <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-300">
               Email Address
@@ -72,7 +71,7 @@ export default function Login() {
             )}
           </div>
 
-          {/* Password Field */}
+          
           <div>
             <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-300">
               Password
@@ -95,7 +94,7 @@ export default function Login() {
             )}
           </div>
 
-          {/* Submit Button */}
+         
           <button
             type="submit"
             disabled={isLoading}

@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import { signUpSchema } from "../schemas/signUpSchema";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
-import { User, Mail, Lock } from "lucide-react"; // Lucide icons
+import { User, Mail, Lock } from "lucide-react"; 
 
 export default function Register() {
   const { register } = useAuth();
@@ -35,7 +35,6 @@ export default function Register() {
         navigate("/login");
       } catch (error) {
         toast.error("Registration failed. Try again.");
-        console.error("Register Error:", error);
       } finally {
         setIsLoading(false);
       }
@@ -73,7 +72,7 @@ export default function Register() {
         )}
       </div>
 
-      {/* Email Field */}
+      
       <div>
         <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-300">
           Email Address
@@ -96,7 +95,7 @@ export default function Register() {
         )}
       </div>
 
-      {/* Password Field */}
+      
       <div>
         <label htmlFor="password" className="block mb-1 text-sm font-medium text-gray-300">
           Password
@@ -119,7 +118,7 @@ export default function Register() {
         )}
       </div>
 
-      {/* Submit Button */}
+      
       <button
         type="submit"
         disabled={isLoading}
@@ -129,7 +128,7 @@ export default function Register() {
       </button>
     </form>
 
-    {/* Redirect to Login */}
+  
     <p className="mt-6 text-sm text-center text-gray-400">
       Already registered?{" "}
       <Link

@@ -6,7 +6,7 @@ import Spinner from "../components/Spinner"
 
 export default function Dashboard() {
   const [entries, setEntries] = useState([]);
-  const [loading, setLoading] = useState(true); // <-- loading state
+  const [loading, setLoading] = useState(true); 
 
   const {loading:authLoading}=useAuth()
 
@@ -32,11 +32,10 @@ export default function Dashboard() {
           </Link>
         </div>
 
-        {/* Spinner while loading */}
         {(loading || authLoading) ? (
           <Spinner />
         ) : (
-          // Entries List
+         
           <div className="space-y-4">
             {entries.length === 0 ? (
               <p className="text-gray-400 text-sm text-center mt-20">
