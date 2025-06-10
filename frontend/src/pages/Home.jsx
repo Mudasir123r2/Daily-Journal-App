@@ -1,6 +1,19 @@
-import { Link } from "react-router-dom";
+import {useAuth} from "../context/AuthContext"
+import {useNavigate} from "react-router-dom"
 
 export default function Home() {
+
+    const {user}=useAuth()
+    const navigate=useNavigate()
+
+    const handleGetStarted=()=>{
+        if(user){
+            navigate("/dashboard")
+        }else{
+            navigate("/register")
+        }
+    }
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-center h-[90vh] bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white px-6 py-8">
       
@@ -12,12 +25,12 @@ export default function Home() {
         <p className="text-lg md:text-xl text-gray-300 max-w-md">
           Capture your thoughts, organize your life, and grow every day. Start your journaling journey with a secure and beautiful experience.
         </p>
-        <Link
-          to="/register"
+        <button
+          onClick={handleGetStarted}
           className="inline-block bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md transition duration-200"
         >
           Get Started
-        </Link>
+        </button>
       </div>
 
       {/* Right Section: Image with Cool Glow */}
