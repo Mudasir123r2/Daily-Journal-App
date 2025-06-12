@@ -4,8 +4,8 @@
   "description": "daily journal app mern stack project",
   "main": "server.js",
   "scripts": {
-    "start": "node backened/server.js",
-    "server": "nodemon backened/server.js"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
   },
   "author": "Mudasir",
   "license": "ISC",
