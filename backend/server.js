@@ -14,7 +14,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
+app.use("/",(req,res)=>{
+    res.send("Welcome to Journal APp")
+})
 app.use("/api/entries",require("./routes/entryRoutes.js"))
 app.use("/api/users",require("./routes/userRoutes.js"))
 
