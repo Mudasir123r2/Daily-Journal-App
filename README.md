@@ -37,24 +37,9 @@ A full-featured **Daily Journal Application** built using the **MERN Stack** (Mo
 | JSON Web Token| User Authentication                |
 
 
-### Dependencies
-
-📌 Backend package.json
-
-"dependencies": {
-  "bcryptjs": "^3.0.2",
-  "cors": "^2.8.5",
-  "dotenv": "^16.5.0",
-  "express": "^5.1.0",
-  "express-async-handler": "^1.2.0",
-  "jsonwebtoken": "^9.0.2",
-  "mongoose": "^8.14.1",
-  "nodemon": "^3.1.10"
-}
-
-🙋‍♂️ Author : Mudasir Mujtaba (CS Student, Mern Stack enthusiast)
-📧 mudasirmujtaba15@gmail.com
-🔗 https://github.com/Mudasir123r2
+🙋‍♂️ Author : Mudasir Mujtaba (CS Student, Mern Stack enthusiast)                 
+  📧 mudasirmujtaba15@gmail.com
+  🔗 https://github.com/Mudasir123r2
 
 📄 License
 This project is licensed under the ISC License.
