@@ -22,31 +22,6 @@ A full-featured **Daily Journal Application** built using the **MERN Stack** (Mo
 ![Login](./frontend/src/assets/login.png)
 ![Dashboard](./frontend/src/assets/dashboard.png)
 
-## 🗂️ Project Folder Structure
-
-daily-journal-app/
-├── backend/ # Node.js + Express + MongoDB API
-│ ├── server.js
-│ ├── models/
-│ ├── routes/
-│ ├── controllers/
-│ └── middleware/
-│ └── config/
-├── frontend/ # React + Tailwind UI
-│ ├── src/
-│ │ ├── api/
-│ │ ├── assets/
-│ │ ├── components/
-│ │ └── context/
-│ │ ├── layout/
-│ │ └── pages/
-│ │ ├── router/
-│ │ └── schemas/
-│ │ └── utils/
-│ │ └── App.jsx
-│ └── vite.config.js
-└── README.md
-
 ## ⚙️ Tech Stack
 
 | Tech          | Description                        |
@@ -75,31 +50,6 @@ daily-journal-app/
   "jsonwebtoken": "^9.0.2",
   "mongoose": "^8.14.1",
   "nodemon": "^3.1.10"
-}
-
-📌 Frontend package.json
-
-"dependencies": {
-  "@tailwindcss/vite": "^4.1.5",
-  "axios": "^1.9.0",
-  "formik": "^2.4.6",
-  "lucide-react": "^0.513.0",
-  "react": "^18.3.1",
-  "react-dom": "^18.3.1",
-  "react-hot-toast": "^2.5.2",
-  "react-router-dom": "^7.5.3",
-  "tailwindcss": "^4.1.5",
-  "yup": "^1.6.1"
-},
-"devDependencies": {
-  "@types/react": "^18.3.3",
-  "@types/react-dom": "^18.3.0",
-  "@vitejs/plugin-react": "^4.3.1",
-  "eslint": "^8.57.0",
-  "eslint-plugin-react": "^7.34.3",
-  "eslint-plugin-react-hooks": "^4.6.2",
-  "eslint-plugin-react-refresh": "^0.4.7",
-  "vite": "^5.3.4"
 }
 
 🙋‍♂️ Author : Mudasir Mujtaba (CS Student, Mern Stack enthusiast)
